@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+#define ll long long int
+#define s(a) scanf("%d",&a)
+#define sl(a) scanf("%lld",&a)
+#define ss(a) scanf("%s",a)
+#define w(t) while(t--)
+#define f(i,n) for(int i=0;i<n;i++)
+#define fd(i,n) for(int i=n-1;i>=0;i--)
+#define p(a) printf("%d",a)
+#define pl(a) printf("%lld",a)
+#define ps(a) printf("%s",a)
+#define pc(a) printf("%c",a)
+#define ent printf("\n")
+#define mod 1000000007
+#define PI 3.14159265
+#define gs getline(cin,s)
+#define pb push_back
+#define mp make_pair
+#define INF 1e18
+#define pii pair<int,int>
+
+using namespace std;
+int recur(int x,int n,int num)
+{
+   if(x==0)
+   	return 1;
+   if(x<0)
+   	return 0;
+   	int ans=0;
+   for(int i=num;i<=33;i++)
+   {
+   	 ans+=recur(x-pow(i,n),n,i+1);
+   }
+   return ans;
+}
+
+int main()
+{
+   ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+
+   ll x,k;
+   cin>>x>>k;
+   int ans=recur(x,k,1);
+   cout<<ans<<endl;
+   return 0;
+}
